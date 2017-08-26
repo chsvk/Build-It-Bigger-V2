@@ -3,8 +3,8 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.View;
 
-import com.example.JokeProvider;
 import com.example.jokeactivity.JokeActivity;
 import com.example.vamshi.myapplication.backend.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -52,8 +52,9 @@ public class EndPointTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
+        MainActivity.jLoading.setVisibility(View.GONE);
         Intent intent = new Intent(mContext, JokeActivity.class);
-        intent.putExtra("Joke", JokeProvider.getJoke());
+        intent.putExtra("Joke", s);
         mContext.startActivity(intent);
 
     }

@@ -5,14 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    public static ProgressBar jLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        jLoading = (ProgressBar)findViewById(R.id.jLoading);
+        jLoading.setVisibility(View.GONE);
     }
 
 
@@ -40,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        jLoading.setVisibility(View.VISIBLE);
         EndPointTask m = new EndPointTask(this);
         m.execute();
     }
