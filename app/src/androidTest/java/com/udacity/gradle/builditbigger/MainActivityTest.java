@@ -70,7 +70,7 @@ public class MainActivityTest {
         }
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.JokeView), withText("How many programmers does it take to change a light bulb ? None, that's a hardware problem"),
+                allOf(withId(R.id.JokeView),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
